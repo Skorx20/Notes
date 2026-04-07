@@ -235,3 +235,12 @@ $$
 ### 7.3 最终输出
 
 根据计算出的时间 $T_4, T_6, T_0, T_7$ 以及切换顺序，配置 MCU 的比较寄存器，生成三路 PWM 信号，控制 MOS 管，产生期望的电压、电流和力矩。
+
+---
+
+## 8. FOC & SVPWM 流程图
+
+<center>
+<img src="Picture\FOC&SVPWM流程图.png" width=600>
+<br>FOC & SVPWM 流程图
+</center>
