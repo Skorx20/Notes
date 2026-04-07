@@ -31,7 +31,7 @@
 <br>三相→两相 静止坐标系
 </center>
 
-变换公式：
+变换公式：  
 $$
 \begin{cases}
 I_\alpha = I_a + \cos\left(\frac{2\pi}{3}\right)I_b + \cos\left(\frac{2\pi}{3}\right)I_c \\[4pt]
@@ -39,7 +39,7 @@ I_\beta = \sin\left(\frac{2\pi}{3}\right)I_b - \sin\left(\frac{2\pi}{3}\right)I_
 \end{cases}
 $$
 
-代入 $\cos\frac{2\pi}{3} = -\frac{1}{2},\sin\frac{2\pi}{3} = \frac{\sqrt{3}}{2}$ ：
+代入 $\cos\frac{2\pi}{3} = -\frac{1}{2},\sin\frac{2\pi}{3} = \frac{\sqrt{3}}{2}$ ：  
 $$
 \begin{bmatrix}
 I_\alpha \\ I_\beta
@@ -66,7 +66,7 @@ $$
 <br>静止→旋转坐标系
 </center>
 
-变换公式：
+变换公式：  
 $$
 \begin{cases}
 I_d = I_\alpha \cos\theta + I_\beta \sin\theta \\[4pt]
@@ -74,7 +74,7 @@ I_q = -I_\alpha \sin\theta + I_\beta \cos\theta
 \end{cases}
 $$
 
-矩阵形式：
+矩阵形式：  
 $$
 \begin{bmatrix} I_d \\ I_q \end{bmatrix}
 =
@@ -120,7 +120,7 @@ $$
 <br>等效电路
 </center>
 
-等效相电压：
+等效相电压：  
 $$
 U_a = \frac{2}{3}U_{dc},\quad U_b = -\frac{1}{3}U_{dc},\quad U_c = -\frac{1}{3}U_{dc}
 $$
@@ -131,7 +131,7 @@ $$
 <br>空间电压矢量合成
 </center>
 
-合成矢量大小：
+合成矢量大小：  
 $$
 |\vec{U}| = \frac{2}{3}U_{dc} + \frac{1}{3}U_{dc} = U_{dc}
 $$
@@ -139,7 +139,7 @@ $$
 
 ### 6.2 开关函数
 
-为了研究各相上下桥臂不同开关组合时逆变器输出的空间电压矢量，我们定义开关函数  $S_x \ (x \in a,b,c)$ ：
+为了研究各相上下桥臂不同开关组合时逆变器输出的空间电压矢量，我们定义开关函数  $S_x \ (x \in a,b,c)$ ：  
 $$
 S_x =
 \begin{cases}
@@ -165,11 +165,11 @@ $$
 
 ### 7.1 SVPWM 合成任意矢量原理
 
-利用这6个空间电压矢量作为基向量就可以合成任意矢量。在每一个扇区，选择相邻两个电压矢量以及零矢量，按照伏秒平衡原则来合成每个扇区内的任意电压矢量，即：
+利用这6个空间电压矢量作为基向量就可以合成任意矢量。在每一个扇区，选择相邻两个电压矢量以及零矢量，按照伏秒平衡原则来合成每个扇区内的任意电压矢量，即：  
 $$
 \int_{0}^{T}U_{ref}dt = \int_{0}^{T_x}U_xdt + \int_{T_x}^{T_x+T_y}U_ydt + \int_{T_x+T_y}^{T}U_0^*dt
 $$
-离散后得：
+离散后得：  
 $$
 U_{ref} \times T = U_x \times T_x + U_y \times T_y + U_0^* \times T_0^*
 $$
@@ -182,12 +182,12 @@ $$
 <br>Ⅰ扇区合成目标矢量
 </center>
 
-设 PWM 周期为 T ， $U_4$ 作用时间 $T_4$ ， $U_6$ 作用时间 $T_6$ ，由正弦定理：
+设 PWM 周期为 T ， $U_4$ 作用时间 $T_4$ ， $U_6$ 作用时间 $T_6$ ，由正弦定理：  
 $$
 \frac{|U_{ref}|}{\sin\frac{2\pi}{3}} = \frac{\left| \frac{T_6}{T}U_6 \right|}{\sin\theta} = \frac{\left| \frac{T_4}{T}U_4 \right|}{\sin\left(\frac{\pi}{3}-\theta\right)}
 $$
 
-已知 $|U_4| = |U_6| = \frac{2}{3}U_{dc}$ ，解得：
+已知 $|U_4| = |U_6| = \frac{2}{3}U_{dc}$ ，解得：  
 $$
 \begin{cases}
 T_4 = m T \sin\left(\frac{\pi}{3} - \theta\right) \\[4pt]
@@ -195,12 +195,12 @@ T_6 = m T \sin\theta
 \end{cases}
 $$
 
-其中调制比：
+其中调制比：  
 $$
 m = \sqrt{3}\,\frac{|U_{ref}|}{U_{dc}}
 $$
 
-零矢量作用时间：
+零矢量作用时间：  
 $$
 T_0 = T_7 = \frac{1}{2}\left(T - T_4 - T_6\right)
 $$
@@ -209,7 +209,7 @@ $$
 
 ### 7.2 开关顺序（七段式）
 
-为减少开关损耗，每次只切换一个桥臂。以第 I 扇区为例：
+为减少开关损耗，每次只切换一个桥臂。以第 I 扇区为例：  
 $$
 000 \rightarrow 100 \rightarrow 110 \rightarrow 111 \rightarrow 110 \rightarrow 100 \rightarrow 000
 $$
@@ -219,7 +219,7 @@ $$
 <br>Ⅰ扇区合成目标矢量开关顺序
 </center>
 
-其他扇区顺序如下表：
+其他扇区顺序如下表：  
 
 | 扇区 | 角度范围 | 开关切换顺序 |
 |------|----------|----------------|
