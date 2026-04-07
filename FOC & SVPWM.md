@@ -204,7 +204,7 @@ $$
 
 $$
 \begin{cases}
-T_4 = m T \sin\left(\frac{\pi}{3} - \theta\right) \\[4pt]
+T_4 = m T \sin\left(\frac{\pi}{3} - \theta\right) \\
 T_6 = m T \sin\theta
 \end{cases}
 $$
